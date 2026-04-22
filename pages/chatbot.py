@@ -2,20 +2,17 @@
 import streamlit as st
 import google.generativeai as ai
 
-# 2. Page title
 st.title('Chat with our AI Assistant✨')
 
 # api setup
-api_key=st.secrets["GOOGLE_API_KEY"]
 key = 'AIzaSyDttSzFbZkXGyqZ9WSd4rmwof4rq46PJUo'
-ai.configure(api_key=api_key)
+ai.configure(api_key="AIzaSyDttSzFbZkXGyqZ9WSd4rmwof4rq46PJUo")
 model = ai.GenerativeModel(model_name='gemini-3.1-flash-lite-preview')
 
-
-# 4. Taking user question
+# user question
 question = st.chat_input('Ask about our courses..')
 
-# 5. Creating chat messages & generating results
+# generating results
 if question:
     with st.chat_message('human', avatar='👤'):
         st.write(question)
