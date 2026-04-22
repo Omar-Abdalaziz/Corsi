@@ -5,10 +5,11 @@ import google.generativeai as ai
 # 2. Page title
 st.title('Chat with our AI Assistant✨')
 
-# 3. Gemini API setup
-key = 'AIzaSyAo1Is0txF1mGiK8dssp8VdPQNRZYokNlk'
-ai.configure(api_key="AIzaSyAo1Is0txF1mGiK8dssp8VdPQNRZYokNlk")
+# api setup
+api_key = st.secrets["key"]
+ai.configure(api_key=api_key)
 model = ai.GenerativeModel(model_name='gemini-3.1-flash-lite-preview')
+
 
 # 4. Taking user question
 question = st.chat_input('Ask about our courses..')
